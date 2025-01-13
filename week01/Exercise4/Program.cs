@@ -1,11 +1,12 @@
 using System;
-
+using System.Collections.Generic;
 class Program
 {
     static void Main(string[] args)
     {
         List<int> numList = new List<int>(); //create a list to store the numbers
         int userInput;
+        int sumList = 0;
         do
         {
             Console.Write("Enter a number to add to the list and 0 to stop adding: ");
@@ -15,7 +16,10 @@ class Program
                 numList.Add(userInput);
             }
         } while (userInput != 0);
-
-        Console.WriteLine("");
+        for (int i = 0; i < numList.Count; i++)
+        {
+            sumList += numList[i];
+        }
+        Console.WriteLine($"Sum of numbers in the list is: {sumList}");
     }
 }
