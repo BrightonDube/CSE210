@@ -4,9 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<int> numList = new List<int>(); //create a list to store the numbers
+        List<double> numList = new List<double>(); //create a list to store the numbers
         int userInput;
-        int sumList = 0;
+        double sumList = 0;
         double average;
         do
         {
@@ -21,7 +21,22 @@ class Program
         {
             sumList += numList[i];
         }
-        average = (double)sumList / numList.Count;
+
+        average = sumList / numList.Count;
+        double smallestPositive = 10000000000.0;
+        bool foundPositive = false;
+        foreach (double num in numList)
+        {
+            if (num > 0 && num < smallestPositive)
+            {
+                smallestPositive = num;
+                foundPositive = true;
+            }
+        }
+        if (foundPositive)
+        {
+            Console.WriteLine($"The smallest positive number in the list is: {smallestPositive}");
+        }
         Console.WriteLine($"Sum of numbers in the list is: {sumList}");
         Console.WriteLine($"Average of numbers in the list is: {average}");
         Console.WriteLine($"The largest number in the list is: {numList.Max()}");
