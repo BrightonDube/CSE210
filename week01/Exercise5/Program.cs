@@ -15,5 +15,14 @@ class Program
         Console.Write("Enter your name: ");
         return Console.ReadLine();
     }
+    static int PromptUserNumber()
+    {
+        Console.Write("Enter your favorite number: ");
+        return int.Parse(Console.ReadLine());
+    }
+    static int SquareNumber(int number)
+    {
+        return number * number;
+    }
 
 }
