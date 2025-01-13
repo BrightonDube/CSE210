@@ -5,6 +5,10 @@ class Program
     static void Main(string[] args)
     {
         DisplayWelcome();
+        string userName = PromptUserName();
+        int favoriteNumber = PromptUserNumber();
+        int square = SquareNumber(favoriteNumber);
+        DisplayResult(userName, square);
     }
     static void DisplayWelcome()
     {
@@ -23,6 +27,10 @@ class Program
     static int SquareNumber(int number)
     {
         return number * number;
+    }
+    static void DisplayResult(string name, int square)
+    {
+        Console.WriteLine($"Hello, {name}! Your favorite number squared is {square}");
     }
 
 }
