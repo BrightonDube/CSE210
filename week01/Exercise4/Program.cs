@@ -21,7 +21,7 @@ class Program
         {
             sumList += numList[i];
         }
-        average = sumList / numList.Count;
+        average = (double)sumList / numList.Count;
         Console.WriteLine($"Sum of numbers in the list is: {sumList}");
         Console.WriteLine($"Average of numbers in the list is: {average}");
         Console.WriteLine($"The largest number in the list is: {numList.Max()}");
