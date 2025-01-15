@@ -7,6 +7,7 @@ namespace Journal;
 
 public class Journal
 {
-    public List<string> Entries { get; set; } = new();
-    public string Name { get; set; }
+    public List<string> _entries = new();
+    public string _name;
+    
 }
