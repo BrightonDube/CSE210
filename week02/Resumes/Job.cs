@@ -13,7 +13,7 @@ namespace Resumes
         public int _endYear = 0;
         public void GetJob()
         {
-            Console.WriteLine($"_jobTitle ({_companyName}) {_startYear}-{_endYear}");
+            Console.WriteLine($"{_jobTitle} ({_companyName}) {_startYear}-{_endYear}");
         }
     }
 }
