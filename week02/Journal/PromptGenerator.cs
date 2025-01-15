@@ -7,7 +7,7 @@ namespace Journal
 {
     public class PromptGenerator
     {
-        List<string> _prompts = new List<string>();
+        public List<string> _prompts = new List<string>();
         
         public void DisplayPrompt()
         {   

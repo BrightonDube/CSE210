@@ -10,14 +10,14 @@ class Program
     {
         
         Journal myJournal = new();
-        var myJourn = myJournal.Entries = new() { "Today I went to work", "I bought a 2 liter bottle of juice", "Then I was shopping for a flight ticket to CT" };
-        string name = myJournal.Name = "Brighton";
-        Console.WriteLine($"My name is {name}");
+        PromptGenerator promptGenerators = new();
+        promptGenerators._prompts = new() { "What was your favorite memory from today?", "How was your day?", "What's your favorite thing about the weather?" };
+        myJournal._entries = new() { "Today I went to work", "I bought a 2 liter bottle of juice", "Then I was shopping for a flight ticket to CT" };
+        string name = myJournal._name = "Brighton";
+        Console.WriteLine($"My name is {name}");        
         
-        foreach (string item in myJourn)
-        {
-            Console.WriteLine($"{item}");
-        }
+        promptGenerators.DisplayPrompt();
+        myJournal.Display();
       
     }
 }
