@@ -8,8 +8,14 @@ namespace Journal;
 public class Journal
 {
     public List<string> _entries = new();
+    Entry entry = new();
     public string _name;
-    public void Display()
+
+    public void AddEntry(Entry entry)
+    {
+        _entries.Add(entry._entryText);
+    }
+    public void DisplayAll()
     {
         Console.WriteLine($"Journal entries for {_name}:");
         foreach (string entry in _entries)

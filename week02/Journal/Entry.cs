@@ -7,16 +7,21 @@ namespace Journal
 {
     public class Entry
     {
-        public List<string> _entries = new();
-        DateTime theCurrentTime = DateTime.Now;
+        public string _promptText;
+        public string _entryText;
+        private DateTime theCurrentTime;
+
+        public Entry()
+        {
+            theCurrentTime = DateTime.Now; // Initialize in the constructor
+        }
         
         public void Display()
         {
-            string dateText = theCurrentTime.ToShortDateString();
-            foreach (string entry in _entries)
-            {
-                Console.WriteLine($"{dateText} {entry}");
-            }
+            
+            
+                Console.WriteLine($"{theCurrentTime.ToShortDateString} {_entryText}");
+            
             
         }
     }
