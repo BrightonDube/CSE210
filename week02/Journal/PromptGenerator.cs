@@ -9,12 +9,12 @@ namespace Journal
     {
         public List<string> _prompts = new List<string>();
         
-        public void DisplayPrompt()
+        public string GetRandomPrompt()
         {   
             Random random = new Random();
             int randomIndex = random.Next(_prompts.Count);
             string prompt = _prompts[randomIndex];
-            Console.WriteLine($"{prompt}");
+            return prompt;
         }
     }
 }

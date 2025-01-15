@@ -11,7 +11,7 @@ public class Journal
     public string _name;
     public void Display()
     {
-        Console.WriteLine($"My journal entries for {_name}:");
+        Console.WriteLine($"Journal entries for {_name}:");
         foreach (string entry in _entries)
         {
             Console.WriteLine($"{entry}");
