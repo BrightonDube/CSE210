@@ -31,10 +31,11 @@ class Program
         // resume._jobs.Add(job3);
         
 
-        foreach (Job job1 in resume._jobs)
-        {
-            job1.GetJob();
-        }
+        // foreach (Job job1 in resume._jobs)
+        // {
+        //     job1.GetJob();
+        // }
+        resume.DisplayResume();
 
     }
 }
