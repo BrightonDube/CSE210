@@ -26,4 +26,14 @@ class Program
 
       
     }
+    public void DisplayMenu()
+    {
+        Console.WriteLine("Choose an option:");
+        Console.WriteLine("1. Write your entry");
+        Console.WriteLine("2. Display Journal");
+        Console.WriteLine("3. Load File");
+        Console.WriteLine("3. Save File");
+        Console.WriteLine("3. Quit Program");
+        Console.WriteLine("What would you like to do? ");       
+    }
 }

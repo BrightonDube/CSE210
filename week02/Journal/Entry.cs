@@ -17,12 +17,8 @@ namespace Journal
         }
         
         public void Display()
-        {
-            
-            
-                Console.WriteLine($"{theCurrentTime.ToShortDateString} {_entryText}");
-            
-            
+        {                   
+            Console.WriteLine($"{theCurrentTime.ToShortDateString()} {_entryText}");
         }
     }
 }
