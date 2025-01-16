@@ -72,7 +72,7 @@ namespace Journal
             foreach (Entry entry in _entries)
             {
                 //Console.WriteLine($"{entry}");
-                Console.WriteLine($"Date: {entry.entryTime} Prompt: {entry._promptText} \n{entry._entryText}\n");
+                Console.WriteLine($"Date: {entry.entryTime.ToShortDateString()} Prompt: {entry._promptText} \n{entry._entryText}");
             }
             return;
         }
