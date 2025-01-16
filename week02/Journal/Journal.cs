@@ -34,13 +34,21 @@ namespace Journal
             {
                 if (File.Exists(filename))
                 {
-                    string[] lines = File.ReadAllLines(filename);
-                    _entries.Clear(); // Clear existing entries before loading
-                    foreach (string line in lines)
+                    // string[] lines = File.ReadAllLines(filename);
+                    // _entries.Clear(); // Clear existing entries before loading
+                    // foreach (string line in lines)
+                    // {
+                    //     _entries.Add(line);
+                    // }
+                    string jsonString = File.ReadAllText(filename);
+                    var loadedEntries = JsonSerializer.Deserialize<List<Entry>>(jsonString);
+                    if (loadedEntries != null)
+
                     {
-                        _entries.Add(line);
+                        _entries = loadedEntries;
+                        Console.WriteLine("Journal loaded successfully!");
+                        
                     }
-                    Console.WriteLine("Journal loaded successfully!");
                 }
                 else
                 {
@@ -56,11 +64,12 @@ namespace Journal
 
         public void AddEntry(Entry entry)
         {
-            _entries.Add($"Date: {entry.entryTime} Prompt: {entry._promptText} /n{entry._entryText}");
+            // _entries.Add($"Date: {entry.entryTime} Prompt: {entry._promptText} /n{entry._entryText}");
+            _entries.Add(entry);
         }
         public void DisplayAll()
         {
-            foreach (string entry in _entries)
+            foreach (Entry entry in _entries)
             {
                 Console.WriteLine($"{entry}");
             }
