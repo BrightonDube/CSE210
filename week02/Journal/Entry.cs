@@ -7,9 +7,9 @@ namespace Journal
 {
     public class Entry
     {
-        public string _promptText;
-        public string _entryText;
-        public DateTime entryTime;
+        public DateTime entryTime { get; set; }
+        public string _promptText { get; set; }
+        public string _entryText { get; set; }
 
         public Entry()
         {
