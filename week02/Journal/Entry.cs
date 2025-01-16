@@ -13,7 +13,7 @@ namespace Journal
 
         public Entry()
         {
-            theCurrentTime = DateTime.Now; // Initialize in the constructor
+            theCurrentTime = DateTime.Now; 
         }
         
         public void Display()
