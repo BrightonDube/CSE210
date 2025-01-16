@@ -9,7 +9,7 @@ namespace Journal
     {
         public string _promptText;
         public string _entryText;
-        private DateTime theCurrentTime;
+        public DateTime theCurrentTime;
 
         public Entry()
         {

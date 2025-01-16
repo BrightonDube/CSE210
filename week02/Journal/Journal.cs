@@ -13,11 +13,11 @@ public class Journal
 
     public void AddEntry(Entry entry)
     {
-        _entries.Add(entry._entryText);
+        _entries.Add($"Date: {entry.theCurrentTime} Prompt: {entry._promptText} /n{entry._entryText}");
     }
     public void DisplayAll()
     {
-        Console.WriteLine($"Journal entries for {_name}:");
+        Console.WriteLine($"{_name}'s Journal");
         foreach (string entry in _entries)
         {
             Console.WriteLine($"{entry}");
