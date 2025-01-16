@@ -71,7 +71,8 @@ namespace Journal
         {
             foreach (Entry entry in _entries)
             {
-                Console.WriteLine($"{entry}");
+                //Console.WriteLine($"{entry}");
+                Console.WriteLine($"Date: {entry.entryTime} Prompt: {entry._promptText} \n{entry._entryText}\n");
             }
             return;
         }
