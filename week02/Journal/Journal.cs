@@ -9,7 +9,7 @@ public class Journal
 {
     public List<string> _entries = new();
     Entry entry = new();
-    public string _name;
+    public string _fileName;
 
     public void AddEntry(Entry entry)
     {
@@ -17,7 +17,6 @@ public class Journal
     }
     public void DisplayAll()
     {
-        Console.WriteLine($"{_name}'s Journal");
         foreach (string entry in _entries)
         {
             Console.WriteLine($"{entry}");
