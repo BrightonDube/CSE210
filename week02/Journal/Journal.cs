@@ -2,20 +2,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace Journal
     {
     public class Journal
     {
-        public List<string> _entries = new();
-        Entry entry = new();
+        public List<Entry> _entries = new();
+        //Entry entry = new();
         public string _fileName;
         public void SaveToFile(string filename)
         {
             try
             {
-                File.WriteAllLines(filename, _entries);
-                Console.WriteLine("Journal saved successfully!");
+                // File.WriteAllLines(filename, _entries);
+                // Console.WriteLine("Journal saved successfully!");
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string jsonString = JsonSerializer.Serialize(_entries, options);
+                File.WriteAllText(filename, jsonString);
+                Console.WriteLine("Journal saved to file successfully.");
             }
             catch (Exception ex)
             {
