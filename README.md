@@ -1,3 +1,3 @@
-# cse210-ww-student-template
+# cse210
 Brighton Dube
 CSE210 exercises
