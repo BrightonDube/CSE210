@@ -9,16 +9,16 @@ namespace Journal
     {
         public string _promptText;
         public string _entryText;
-        public DateTime theCurrentTime;
+        public DateTime entryTime;
 
         public Entry()
         {
-            theCurrentTime = DateTime.Now; 
+            entryTime = DateTime.Now; 
         }
         
         public void Display()
         {                   
-            Console.WriteLine($"{theCurrentTime.ToShortDateString()} {_entryText}");
+            Console.WriteLine($"{entryTime.ToShortDateString()} {_entryText}");
         }
     }
 }
