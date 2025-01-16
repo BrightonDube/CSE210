@@ -21,6 +21,7 @@ namespace Journal
             {
                 Console.WriteLine($"{entry}");
             }
+            return;
         }
 
     }

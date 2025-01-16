@@ -14,34 +14,42 @@ namespace Journal
             promptGenerators._prompts = new() { "What was your favorite memory from today?", "What's your favorite thing about the weather?", "Who was the most interesting person I interacted with today?", "What was the best part of my day?", "How did I see the hand of the Lord in my life today?", "What was the strongest emotion I felt today?", "If I had one thing I could do over today, what would it be?" };
             myJournal._entries = new();        
             
-            DisplayMenu();
-            string choice = Console.ReadLine();    
+              
 
             // if (!int.TryParse(input, out choice))
             // {
             //     Console.WriteLine("Invalid choice. Please enter a valid number.");
             //     return;
             // }
+            DisplayMenu();
+            string choice = Console.ReadLine();
+            do
+            {   
+                DisplayMenu();
+                choice = Console.ReadLine(); 
+                switch (choice)
+                {
+                    case "1":
+                        entry._promptText = promptGenerators.GetRandomPrompt();
+                        Console.WriteLine($"{entry._promptText}");
+                        entry._entryText = Console.ReadLine();
+                        break;                    
+                    case "2":
+                        myJournal.DisplayAll();
+                        break;
+                    case "3":
+                    case "4":
+                        Console.WriteLine("What is the filename? ");
+                        myJournal._fileName = Console.ReadLine();
+                        break;
+                    default:
+                        Console.WriteLine("Goodbye!");
+                        break;
+                }
+                
+            } while (choice != "5");
 
-            if (choice == "1")
-            {
-                entry._entryText = Console.ReadLine();
-            }
-            else if (choice == "2")
-            {
-                myJournal.DisplayAll();
-            }
-            else if (choice == "3" || choice == "4")
-            {
-                Console.WriteLine("What is the filename? ");
-                myJournal._fileName = Console.ReadLine();
-            }
-            else
-            {
-                Console.WriteLine("Goodbye!");
-                return;
-            }
-                    
+                                
             //Console.WriteLine($"{promptGenerators.GetRandomPrompt()}");
             //myJournal.DisplayAll();
             //entry.Display();
