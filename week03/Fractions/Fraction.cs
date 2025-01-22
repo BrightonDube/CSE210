@@ -9,19 +9,20 @@ namespace Fractions
     {
         private int _top;
         private int _bottom;
+        private int _wholeNumber;
 
         public Fraction()
         {
-            _top = 0
-            _bottom = 0
+            _top = 0;
+            _bottom = 0;
         }
         public Fraction(int wholeNumber){
-            wholeNumber = wholeNumber;
+            _wholeNumber = wholeNumber;
         }
         public Fraction(int top, int bottom)
         {
-            _top = top
-            _bottom = bottom
+            _top = top;
+            _bottom = bottom;
         }
 
         public void SetTop(int top)
