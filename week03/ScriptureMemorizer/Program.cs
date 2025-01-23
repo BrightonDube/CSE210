@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-class Program
+namespace ScriptureMemorizer
 {
-    static void Main(string[] args)
+    public class Program
     {
-        Console.WriteLine("Hello World! This is the ScriptureMemorizer Project.");
+        
     }
 }
