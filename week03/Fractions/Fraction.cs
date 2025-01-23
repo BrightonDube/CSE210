@@ -44,15 +44,13 @@ namespace Fractions
             return _bottom;
         }
 
-        public string GetFractionString(int top, int bottom)
+        public string GetFractionString()
         {
-            _top = top;
-            _bottom = bottom;
             return $"{_top}/{_bottom}";
         }
-        public double GetDecimal(double top, int bottom)
+        public double GetDecimal()
         {
-            return _top/bottom;
+            return (double)_top/_bottom;
         }
     }
 }
