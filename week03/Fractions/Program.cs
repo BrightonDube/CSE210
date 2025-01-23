@@ -1,9 +1,17 @@
 using System;
 
+namespace Fractions
+{
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Fractions Project.");
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(3, 4);
+
+        
+
+        
     }
+}
 }
