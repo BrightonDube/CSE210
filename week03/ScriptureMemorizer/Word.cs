@@ -40,22 +40,18 @@ namespace ScriptureMemorizer
         }
         public bool IsHidden()
         {
-            foreach (char letter in _text)
-            {
-                if (letter != '_')
-                {
-                    _isHidden = false;
-                }
-                else
-                {
-                    _isHidden = true;
-                }
-            }
             return _isHidden;
         }
         public string GetDisplayText()
         {
-            return _text;
+            if (_isHidden)
+            {
+                return _text;
+            }
+            else
+            {
+                return _originalText;
+            }
         }
 
     }
