@@ -14,6 +14,8 @@ namespace ScriptureMemorizer
             Scripture s1 = new Scripture(r1, _text);
             bool toContinue = true;
             string userInput;
+            Random rand = new();
+            int numberToHide = rand.Next(-1, s1.GetWordCount());
             
             while (toContinue)
             {
@@ -24,6 +26,11 @@ namespace ScriptureMemorizer
             {
                 toContinue = false;
                 return;
+            } else if (userInput == "")
+            {
+                s1.HideRandomWords(numberToHide);
+                Console.WriteLine($"{r1.GetDisplayText()} {s1.GetDisplayText()}");
+                numberToHide = rand.Next(-1, s1.GetWordCount());
             }
 
                             

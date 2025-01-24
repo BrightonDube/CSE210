@@ -24,13 +24,23 @@ namespace ScriptureMemorizer
 
         }  
 
+        public int GetWordCount()
+        {
+            return _words.Count;
+        }
         public void HideRandomWords(int numberToHide)
         {
             _words[numberToHide].Hide();
         }     
         public string GetDisplayText()
         {
-            return($"{_words}");
+            string displayedScripture = "";
+            foreach (Word word in _words)
+            {
+                displayedScripture += word.GetDisplayText() + " "; 
+            }
+            return displayedScripture.TrimEnd();
+            
         }    
         public bool IsCompletelyHidden()
         {
