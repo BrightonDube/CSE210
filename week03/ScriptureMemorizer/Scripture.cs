@@ -53,7 +53,12 @@ namespace ScriptureMemorizer
                 }
             }
             return true;
-        }              
+        }   
+
+         public bool GetWordIsHidden(int index)
+        {
+             return _words[index].IsHidden();
+        }           
 
         
     }
