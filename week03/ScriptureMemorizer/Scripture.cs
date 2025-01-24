@@ -13,13 +13,21 @@ namespace ScriptureMemorizer
 
         public Scripture(Reference reference, string text)
         {
-           _reference = new("Genesis", 1, 1, 3);
-           _words = new();       
+           _reference = reference;
+           _words = new();
+           string[] wordsArray = text.Split(' ');
+
+           foreach (string wordString in wordsArray)
+           {
+                Word word = new(wordString);
+                _words.Add(word);               
+           }
+
         }  
 
         public void HideRandomWords(int numberToHide)
         {
-            return;
+            _words[numberToHide].Hide();
         }     
         public string GetDisplayText()
         {
@@ -32,8 +40,6 @@ namespace ScriptureMemorizer
             {
             bool allMatch = word.GetText().All(c => c == '_');
             }
-
-            // If we get to this point, it means ALL words are hidden.
             return true;
         }              
 

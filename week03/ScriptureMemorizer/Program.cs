@@ -14,6 +14,7 @@ namespace ScriptureMemorizer
             Scripture s1 = new Scripture(r1, _text);
 
             string isHidden = $"{s1.IsCompletelyHidden()}";
+            Console.WriteLine($"{isHidden}");
         }
     }
 }
