@@ -9,7 +9,7 @@ namespace ScriptureMemorizer
     {
         static void Main(string[] args)
         {
-            Reference r1 = new("Genesis", 1, 1, 5);
+            Reference r1 = new("Genesis", 1, 1);
             string _text = "In the beginning God Created Heaven and Earth";
             Scripture s1 = new Scripture(r1, _text);
             string userInput;
