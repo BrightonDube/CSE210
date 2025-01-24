@@ -20,9 +20,10 @@ namespace ScriptureMemorizer
             Console.WriteLine($"{r1.GetDisplayText()} {s1.GetDisplayText()}");
             Console.WriteLine("Press enter to continue or type 'quit' to finish");
             userInput = Console.ReadLine();
-            if (userInput == "" || userInput.ToLower() == "quit")
+            if ( s1.IsCompletelyHidden() || userInput.ToLower() == "quit")
             {
                 toContinue = false;
+                return;
             }
 
                             

@@ -9,7 +9,6 @@ namespace ScriptureMemorizer
     {
         private Reference _reference;
         private List<Word> _words;
-        private bool _isHidden = false;
 
         public Scripture(Reference reference, string text)
         {
