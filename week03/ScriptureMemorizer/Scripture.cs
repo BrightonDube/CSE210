@@ -47,7 +47,10 @@ namespace ScriptureMemorizer
             
             foreach (Word word in _words)
             {
-            bool allMatch = word.GetText().All(c => c == '_');
+                if(!word.IsHidden())
+                {  
+                    return false;
+                }
             }
             return true;
         }              

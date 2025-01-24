@@ -26,12 +26,12 @@ namespace ScriptureMemorizer
         }
         public void Hide()
         {
+            _text = "";
             foreach (char letter in _text)
             {
-                string newText = "";
-                newText.Append('_');
-                _isHidden = true;
+                _text = _text + '_';                
             }
+            _isHidden = true;
         }
         public void Show()
         {
