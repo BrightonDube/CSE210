@@ -32,6 +32,7 @@ namespace ScriptureMemorizer
                     
                     s1.HideRandomWords(randomIndex);
                 }
+                Console.Clear();
             }
         }
     }
