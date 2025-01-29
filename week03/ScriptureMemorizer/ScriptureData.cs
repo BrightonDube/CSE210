@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+
 namespace ScriptureMemorizer
 {
     public class ScriptureData

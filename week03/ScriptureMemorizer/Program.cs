@@ -10,6 +10,7 @@ namespace ScriptureMemorizer
 {
     class Program
     {
+        private static Random rand = new Random();
         static void Main(string[] args)
         {
             string scripturesFilePath = "scriptures.json"; 
@@ -21,7 +22,7 @@ namespace ScriptureMemorizer
             // string _text = "In the beginning God Created Heaven and Earth";
             //Scripture s1 = new Scripture(r1, _text);
             string userInput;
-            Random rand = new Random();
+            
             while (true)
             {
                 ScriptureData selectedScripture = scriptures[rand.Next(0, scriptures.Count)]; // this selects a random verse frm the list
@@ -37,7 +38,7 @@ namespace ScriptureMemorizer
                      continue;
                 }
                 Scripture s1 = new Scripture(r1, scriptureText);
-                Console.WriteLine($"{r1.GetDisplayText()} {s1.GetDisplayText()}");
+                Console.WriteLine($"{r1.GetDisplayText()} \n{s1.GetDisplayText()}");
                 Console.WriteLine("Press enter to continue or type 'quit' to finish");
                 userInput = Console.ReadLine();
                 if (s1.IsCompletelyHidden() || userInput.ToLower() == "quit")
@@ -46,12 +47,14 @@ namespace ScriptureMemorizer
                 }
                 else if (userInput == "")
                 {
-                    int randomIndex;
+                     int verseIndex;
+                    int wordIndex;
                     do {
-                     randomIndex = rand.Next(0, s1.GetWordCount());
-                    }while(s1.GetWordIsHidden(randomIndex)); 
+                     verseIndex = rand.Next(0, s1._verses.Count);
+                      wordIndex = rand.Next(0, s1._verses[verseIndex].Count);
+                    }while(s1.GetWordIsHidden(verseIndex, wordIndex)); 
                     
-                    s1.HideRandomWords(randomIndex);
+                    s1.HideRandomWords(verseIndex, wordIndex);
                 }
                 Console.Clear();
             }
