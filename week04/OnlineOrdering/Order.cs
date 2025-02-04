@@ -28,6 +28,17 @@ namespace OnlineOrdering
         double shippingCost = _customer.IsInUSA() ? 5 : 35;
         return productTotal + shippingCost;
        }
+       public string GetPackingLabel()
+       {
+        string packingLabel = "Order for " + _customer.GetName() + "\n";
+        foreach (Product product in _products)
+        {
+            packingLabel += product.GetName() + " (ID: " + product.GetProductId() + ")\n";
+        }
+        return packingLabel;
+
+
+       }
 
     }
 }
