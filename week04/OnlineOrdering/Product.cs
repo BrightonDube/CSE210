@@ -19,5 +19,17 @@ namespace OnlineOrdering
             _price = price;
             _quantity = quantity;
         }
+        public string GetName()
+        {
+            return _name;
+        }
+        public string GetProductId()
+        {
+            return _productId;
+        }
+        public double CalculateProductTotal()
+        {
+            return _price * _quantity;
+        }
     }
 }
