@@ -23,5 +23,9 @@ namespace OnlineOrdering
         {
             return _address;
         }
+        public bool IsInUSA() 
+        {
+            return _address.IsInUSA();
+        }
     }
 }
