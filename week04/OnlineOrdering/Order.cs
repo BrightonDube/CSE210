@@ -25,6 +25,9 @@ namespace OnlineOrdering
         {
             productTotal += product.CalculateProductTotal();
         }
+        double shippingCost = _customer.IsInUSA() ? 5 : 35;
+        return productTotal + shippingCost;
        }
+
     }
 }
