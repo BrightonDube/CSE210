@@ -13,6 +13,10 @@ namespace OnlineOrdering
             Customer customer1 = new Customer("John Smith", usaAddress);
             Customer customer2 = new Customer("Jane Doe", internationalAddress);
 
+            Product product1 = new Product("Laptop", "LP001", 1200.00, 1);
+            Product product2 = new Product("Mouse", "MS002", 25.00, 2);
+            Product product3 = new Product("Keyboard", "KB003", 75.00, 1);
+
         }
         
     }
