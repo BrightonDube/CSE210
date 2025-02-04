@@ -12,6 +12,18 @@ namespace OnlineOrdering
         private string _stateProvince;
         private string _country;
 
+        public Address(string street, string city, string stateProvince, string country)
+        {
+            _street = street;
+            _city = city;
+            _stateProvince = stateProvince;
+            _country = country;
+        }
+        public bool IsInUSA()
+        {
+            return _country.ToUpper() == "USA";
+        }
+        
 
     }
 }
