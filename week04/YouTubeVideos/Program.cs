@@ -15,29 +15,29 @@ namespace YouTubeVideos
             video1.AddComment(new Comment("Don","I'm always looking forward to your new videos."));
 
             video2.AddComment(new Comment("David", "Good explanation."));
-        video2.AddComment(new Comment("Eve", "Please make more videos like this."));
-        video2.AddComment(new Comment("Frank", "Well done!"));
-         video3.AddComment(new Comment("Grace", "This is very informative."));
-        video3.AddComment(new Comment("Henry", "Can you explain this further?"));
-        video3.AddComment(new Comment("Ivy", "Thank you for sharing."));
-        video3.AddComment(new Comment("Jack", "You have great insight"));
+            video2.AddComment(new Comment("Eve", "Please make more videos like this."));
+            video2.AddComment(new Comment("Frank", "Well done!"));
+            video3.AddComment(new Comment("Grace", "This is very informative."));
+            video3.AddComment(new Comment("Henry", "Can you explain this further?"));
+            video3.AddComment(new Comment("Ivy", "Thank you for sharing."));
+            video3.AddComment(new Comment("Jack", "You have great insight"));
 
-        List<Video> videos = new List<Video> { video1, video2, video3 };
+            List<Video> videos = new List<Video> { video1, video2, video3 };
 
-        foreach (Video video in videos)
-        {
-            Console.WriteLine($"Title: {video.GetTitle()}");
-            Console.WriteLine($"Author: {video.GetAuthor()}");
-            Console.WriteLine($"Length: {video.GetLength()} seconds");
-            Console.WriteLine($"Number of Comments: {video.GetNumberOfComments()}");
-
-            Console.WriteLine("Comments:");
-            foreach (Comment comment in video.GetComments())
+            foreach (Video video in videos)
             {
-                Console.WriteLine($"  {comment.GetCommenterName()}: {comment.GetCommentText()}");
+                Console.WriteLine($"Title: {video.GetTitle()}");
+                Console.WriteLine($"Author: {video.GetAuthor()}");
+                Console.WriteLine($"Length: {video.GetLength()} seconds");
+                Console.WriteLine($"Number of Comments: {video.GetNumberOfComments()}");
+
+                Console.WriteLine("Comments:");
+                foreach (Comment comment in video.GetComments())
+                {
+                    Console.WriteLine($"  {comment.GetCommenterName()}: {comment.GetCommentText()}");
+                }
+                Console.WriteLine();
             }
-            Console.WriteLine();
-        }
 
         }
     }
