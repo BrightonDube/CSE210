@@ -23,7 +23,12 @@ namespace OnlineOrdering
         {
             return _country.ToUpper() == "USA";
         }
-        
+        public string GetFullAddress()
+        {
+            return $"{_street}, {_city}, {_stateProvince}, {_country}";
+        }
+    
+
 
     }
 }
