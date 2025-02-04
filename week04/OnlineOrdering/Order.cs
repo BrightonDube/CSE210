@@ -39,6 +39,10 @@ namespace OnlineOrdering
 
 
        }
+       public string GetShippingLabel()
+       {
+            return _customer.GetName() + "\n" + _customer.GetAddress().GetFullAddress();
+       }
 
     }
 }
