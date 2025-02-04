@@ -43,6 +43,10 @@ namespace YouTubeVideos
         {
             return _comments.Count;
         }
+        public List<Comment> GetComments()
+        {
+            return _comments;
+        }
         
     }
 }
