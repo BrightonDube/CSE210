@@ -26,6 +26,16 @@ namespace OnlineOrdering
             order2.AddProduct(product3);
             order2.AddProduct(product1);
 
+            Console.WriteLine("Order 1:");
+            Console.WriteLine("Shipping Label:\n" + order1.GetShippingLabel());
+            Console.WriteLine("Packing Label:\n" + order1.GetPackingLabel());
+            Console.WriteLine("Total Cost: $" + order1.CalculateTotalCost());
+
+            Console.WriteLine("\nOrder 2:");
+            Console.WriteLine("Shipping Label:\n" + order2.GetShippingLabel());
+            Console.WriteLine("Packing Label:\n" + order2.GetPackingLabel());
+            Console.WriteLine("Total Cost: $" + order2.CalculateTotalCost());
+
         }
         
     }
