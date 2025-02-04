@@ -17,6 +17,15 @@ namespace OnlineOrdering
             Product product2 = new Product("Mouse", "MS002", 25.00, 2);
             Product product3 = new Product("Keyboard", "KB003", 75.00, 1);
 
+            Order order1 = new Order(customer1);
+            order1.AddProduct(product1);
+            order1.AddProduct(product2);
+
+            Order order2 = new Order(customer2);
+            order2.AddProduct(product2);
+            order2.AddProduct(product3);
+            order2.AddProduct(product1);
+
         }
         
     }
