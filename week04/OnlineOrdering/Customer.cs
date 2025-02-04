@@ -15,5 +15,13 @@ namespace OnlineOrdering
             _name = name;
             _address = address;
         }
+        public string GetName()
+        {
+            return _name;
+        }
+        public Address GetAddress()
+        {
+            return _address;
+        }
     }
 }
