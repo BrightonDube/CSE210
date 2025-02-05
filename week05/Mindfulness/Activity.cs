@@ -31,7 +31,15 @@ namespace Mindfulness
         {
             Console.WriteLine("Thank you for using the Mindfulness app");
         }
-        
+        public void ShowSpinner(int seconds)
+        {
+            for (int i = 0; i < seconds; i++)
+            {
+                Console.Write("\rSpinning... {0} seconds", i);
+                System.Threading.Thread.Sleep(1000);
+                
+            }
+        }
 
 
 
