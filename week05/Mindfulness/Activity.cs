@@ -23,7 +23,17 @@ namespace Mindfulness
             _description = "John Smith's activity";
             _duration = 0;
         }
+        public void DisplayStartingMessage()
+        {
+            Console.WriteLine("Welcome to the Mindfulness app");
+        }
+        public void DisplayEndingMessage()
+        {
+            Console.WriteLine("Thank you for using the Mindfulness app");
+        }
         
+
+
 
     }
 }
