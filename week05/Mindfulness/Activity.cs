@@ -37,7 +37,15 @@ namespace Mindfulness
             {
                 Console.Write("\rSpinning... {0} seconds", i);
                 System.Threading.Thread.Sleep(1000);
-                
+
+            }
+        }
+        public void ShowCountDown(int seconds)
+        {
+            for (int i = seconds; i > 0; i--)
+            {
+                Console.WriteLine("\rCountdown: {0} seconds", i);
+
             }
         }
 
