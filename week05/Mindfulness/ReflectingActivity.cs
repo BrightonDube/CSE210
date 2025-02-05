@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Mindfulness
 {
-    public class ReflectingActivity
+    public class ReflectingActivity : Activity
     {
         List<string> _prompts;
         List<string> _questions;
