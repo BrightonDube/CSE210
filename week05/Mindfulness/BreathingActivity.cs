@@ -5,8 +5,11 @@ using System.Threading.Tasks;
 
 namespace Mindfulness
 {
-    public class BreathingActivity
+    public class BreathingActivity : Activity
     {
-        
+        public BreathingActivity()
+        {
+            
+        }
     }
 }
