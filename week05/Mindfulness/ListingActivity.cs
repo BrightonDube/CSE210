@@ -10,7 +10,7 @@ namespace Mindfulness
         private int _count;
         private List<string> _prompts;
 
-        ListingActivity(int count, List prompts)
+        ListingActivity(int count, List<string> prompts)
         {
             _count = count;
             _prompts = prompts;
@@ -22,7 +22,7 @@ namespace Mindfulness
                 Console.WriteLine(_prompts[i]);
 
             }
-            
+
         }
     }
 }
