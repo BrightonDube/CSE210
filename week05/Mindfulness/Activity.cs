@@ -9,23 +9,35 @@ namespace Mindfulness
     {
         private string _name;
         private string _description;
-        private int _duration;
+        protected int _duration;
 
-        public Activity(string name, string description, int duration)
+        public Activity(string name, string description)
         {
             _name = name;
             _description = description;
-            _duration = duration;
         }
         public Activity()
         {
-            _name = "John Smith";
-            _description = "John Smith's activity";
-            _duration = 0;
+        
+        }
+        public void SetDuration()
+        {
+            Console.Write("How long, in seconds, would you like for your session? ");
+            string durationInput = Console.ReadLine();
+            if (int.TryParse(durationInput, out int duration))
+            {
+                _duration = duration;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Setting duration to 30 seconds.");
+                _duration = 30;
+            }
         }
         public void DisplayStartingMessage()
         {
-            Console.WriteLine("Welcome to the Mindfulness app");
+            Console.WriteLine($"Welcome to the {_name} activity.\n");
+            Console.WriteLine($"This activity will help you {_description}\n");
         }
         public void DisplayEndingMessage()
         {
@@ -35,8 +47,16 @@ namespace Mindfulness
         {
             for (int i = 0; i < seconds; i++)
             {
-                Console.Write("\rSpinning... {0} seconds", i);
-                System.Threading.Thread.Sleep(1000);
+
+                Console.Write("/");
+
+                Thread.Sleep(500);
+
+                Console.Write("\b \b");
+                Console.Write("-");
+                Thread.Sleep(500);
+                Console.Write("\b \b");
+                Console.Write("\\");
 
             }
         }

@@ -9,6 +9,10 @@ namespace Mindfulness
     {
         public BreathingActivity()
         {
+        }
+        public void Run()
+        {
+            Console.WriteLine("Breathing Activity");
             
         }
     }
