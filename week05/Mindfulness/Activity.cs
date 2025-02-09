@@ -43,22 +43,31 @@ namespace Mindfulness
         {
             Console.WriteLine("Thank you for using the Mindfulness app");
         }
-        public void ShowSpinner(int seconds)
-        {
-            for (int i = 0; i < seconds; i++)
+       public void ShowSpinner(int seconds)
+       {
+            Console.Write("Get Ready "); 
+
+            for (int i = 0; i < seconds * 2; i++) 
             {
-
                 Console.Write("/");
+                Thread.Sleep(250); 
 
-                Thread.Sleep(500);
-
-                Console.Write("\b \b");
+                Console.Write("\b \b"); 
                 Console.Write("-");
-                Thread.Sleep(500);
-                Console.Write("\b \b");
-                Console.Write("\\");
+                Thread.Sleep(250); 
 
+                Console.Write("\b \b"); 
+                Console.Write("\\");
+                Thread.Sleep(250); 
+
+                Console.Write("\b \b"); 
+                Console.Write("|");
+                Thread.Sleep(250); 
+
+                Console.Write("\b \b"); 
             }
+
+            Console.WriteLine(); 
         }
         public void ShowCountDown(int seconds)
         {

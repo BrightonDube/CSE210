@@ -44,6 +44,7 @@ namespace Mindfulness
             Activity activity = new(activityName, description);
             activity.DisplayStartingMessage();
             activity.SetDuration();
+            activity.ShowSpinner(3);
             
         }
     }
