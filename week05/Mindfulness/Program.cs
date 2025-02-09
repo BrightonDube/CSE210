@@ -4,12 +4,36 @@ class Program
 {
     static void Main(string[] args)
     {
+        string activity = "";
         Console.WriteLine("Menu Options:");
         Console.WriteLine("\t1. Start breathing activity");
-        Console.WriteLine("\t2. Start breathing activity");
-        Console.WriteLine("\t3. Start breathing activity");
-        Console.WriteLine("\t4. Start breathing activity");
+        Console.WriteLine("\t2. Start reflecting activity");
+        Console.WriteLine("\t3. Start listing activity");
+        Console.WriteLine("\t4. Quit");
         Console.Write("Select a choice from the menu: ");
         string choice = Console.ReadLine();
+
+        if (choice == "1") 
+        {
+            Console.WriteLine("You have selected option 1");
+            activity = "breathing";
+
+        }
+        else if (choice == "2")
+        {
+            Console.WriteLine("You have selected option 2");
+            activity = "reflecting";
+        }
+        else if (choice == "3")
+        {
+            Console.WriteLine("You have selected option 3");
+            activity = "listing";
+        }
+        else if (choice == "4")
+        {
+            Console.WriteLine("Goodbye");
+        }
+        Console.WriteLine($"Welcome to the {activity.ToUpper()} Activity.");
+        Console.WriteLine("This activity will help you relax by walking you through breathing in and out")
     }
 }
