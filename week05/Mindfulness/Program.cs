@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         string activity = "";
+        string action = "";
         Console.WriteLine("Menu Options:");
         Console.WriteLine("\t1. Start breathing activity");
         Console.WriteLine("\t2. Start reflecting activity");
@@ -17,6 +18,7 @@ class Program
         {
             Console.WriteLine("You have selected option 1");
             activity = "breathing";
+            action = "relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
 
         }
         else if (choice == "2")
@@ -34,6 +36,8 @@ class Program
             Console.WriteLine("Goodbye");
         }
         Console.WriteLine($"Welcome to the {activity.ToUpper()} Activity.");
-        Console.WriteLine("This activity will help you relax by walking you through breathing in and out")
+        Console.WriteLine($"This activity will help you {action}");
+        Console.Write("How long, in seconds, would you like for your session? ");
+        Console.ReadLine();
     }
 }
