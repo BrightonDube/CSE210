@@ -25,6 +25,7 @@ class Program
         {
             Console.WriteLine("You have selected option 2");
             activity = "reflecting";
+            action = "reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
         }
         else if (choice == "3")
         {
@@ -38,6 +39,6 @@ class Program
         Console.WriteLine($"Welcome to the {activity.ToUpper()} Activity.");
         Console.WriteLine($"This activity will help you {action}");
         Console.Write("How long, in seconds, would you like for your session? ");
-        Console.ReadLine();
+        int timer = Convert.ToInt32(Console.ReadLine());
     }
 }
