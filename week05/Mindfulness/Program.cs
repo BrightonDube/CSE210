@@ -31,6 +31,7 @@ class Program
         {
             Console.WriteLine("You have selected option 3");
             activity = "listing";
+            action = "reflect on the good things in your life by having you list as many things a you can  in a certain area";
         }
         else if (choice == "4")
         {
