@@ -6,44 +6,49 @@ namespace Mindfulness
     {
         static void Main(string[] args)
         {
-            string activityName = "";
-            string description = "";
-            Console.WriteLine("Menu Options:");
-            Console.WriteLine("\t1. Start breathing activity");
-            Console.WriteLine("\t2. Start reflecting activity");
-            Console.WriteLine("\t3. Start listing activity");
-            Console.WriteLine("\t4. Quit");
-            Console.Write("Select a choice from the menu: ");
-            string choice = Console.ReadLine();
+            while (true)
+            {
+                string activityName = "";
+                string description = "";
+                Console.WriteLine("Menu Options:");
+                Console.WriteLine("\t1. Start breathing activity");
+                Console.WriteLine("\t2. Start reflecting activity");
+                Console.WriteLine("\t3. Start listing activity");
+                Console.WriteLine("\t4. Quit");
+                Console.Write("Select a choice from the menu: ");
 
-            if (choice == "1") 
-            {
-                activityName = "Breathing";
-                description = "relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
+                string choice = Console.ReadLine();
+
+                if (choice == "1")
+                {
+                    BreathingActivity breathingActivity = new BreathingActivity();
+                    breathingActivity.Run();
+                    break;
+
+                }
+                else if (choice == "2")
+                {
+                    ReflectingActivity reflectingActivity = new();
+                    reflectingActivity.Run();
+                }
+                else if (choice == "3")
+                {
+                    activityName = "Listing";
+                    description = "reflect on the good things in your life by having you list as many things a you can  in a certain area";
+                }
+                else if (choice == "4")
+                {
+                    Console.WriteLine("Goodbye");
+                }
+
+                Activity activity = new(activityName, description);
+                activity.DisplayStartingMessage();
+                activity.SetDuration();
+                activity.ShowSpinner(3);
+                activity.DisplayEndingMessage();
+                activity.ShowCountDown(5);
 
             }
-            else if (choice == "2")
-            {
-                activityName = "Reflecting";
-                description = "reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
-            }
-            else if (choice == "3")
-            {
-                activityName = "Listing";
-                description = "reflect on the good things in your life by having you list as many things a you can  in a certain area";
-            }
-            else if (choice == "4")
-            {
-                Console.WriteLine("Goodbye");
-            }
-
-            Activity activity = new(activityName, description);
-            activity.DisplayStartingMessage();
-            activity.SetDuration();
-            activity.ShowSpinner(3);
-            activity.DisplayEndingMessage();
-            activity.ShowCountDown(5);
-            
         }
     }
 }

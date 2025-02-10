@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Mindfulness
+{
+    public class ListingActivity : Activity
     {
-        public class ListingActivity : Activity
-        {
-            private static List<string> _prompts = new List<string>
+        private static List<string> _prompts = new List<string>
         {
             "Who are people that you appreciate?",
             "What are personal strengths of yours?",
@@ -44,6 +44,21 @@ namespace Mindfulness
             Console.WriteLine($"You listed {_count} items!");
             DisplayEndingMessage();
 
+        }
+        public void GetRandomPrompt()
+        {
+            Console.WriteLine(_prompts[_random.Next(_prompts.Count)]);
+        }
+        public List<string> GetListFromUser(DateTime futureTime)
+        {
+            List<string> items = new List<string>();
+            while (DateTime.Now < futureTime)
+            {
+                Console.Write("> ");
+                string item = Console.ReadLine();
+                items.Add(item);
+            }
+            return items;
         }
     }
 }
