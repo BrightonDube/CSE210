@@ -59,12 +59,13 @@ namespace Mindfulness
 
             while (DateTime.Now < futureTime)
             {
-                Console.Write($"\r{spinnerCharacters[characterIndex]}");
+                Console.CursorLeft = 0;
+
+                Console.Write($"{spinnerCharacters[characterIndex]}");
                 Thread.Sleep(250);
 
                 characterIndex = (characterIndex + 1) % spinnerCharacters.Count;
             }
-            Console.WriteLine("\b \b");
             Console.WriteLine();
         }
         public void ShowCountDown(int seconds)

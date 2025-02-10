@@ -6,7 +6,7 @@ namespace Mindfulness
     {
         static void Main(string[] args)
         {
-            // Creativity : the reflecting activity guarantees all prompts are used once
+            // For creativity, the reflecting activity guarantees all prompts and questions are used once
             while (true)
             {
                 Console.WriteLine("Menu Options:");

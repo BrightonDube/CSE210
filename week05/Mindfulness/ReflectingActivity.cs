@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Mindfulness
 {
     public class ReflectingActivity : Activity
     {
-        private readonly List<string> _prompts;
-        private readonly List<string> _questions;
-        private List<string> _usedPrompts;
+        private List<string> _prompts;
+        private List<string> _questions;
+        private List<string> _usedPrompts; 
+        private List<string> _usedQuestions; 
 
         public ReflectingActivity() : base("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
         {
@@ -30,7 +33,9 @@ namespace Mindfulness
                 "What did you learn about yourself through this experience?",
                 "How can you keep this experience in mind in the future?"
             };
-            _usedPrompts = new();
+             _usedPrompts = new List<string>(); 
+             _usedQuestions = new List<string>();
+
         }
         private Random _random = new Random();
         public void Run()
@@ -38,17 +43,15 @@ namespace Mindfulness
             DisplayStartingMessage();
             SetDuration();
             Console.WriteLine("Consider the following prompt:\n");
-            string prompt = GetRandomPrompt();
+            string prompt = GetRandomPrompt(); 
             Console.WriteLine($"--- {prompt} ---\n");
-            _usedPrompts.Add(prompt);
+            _usedPrompts.Add(prompt); 
             Console.WriteLine("When you have something in mind, press enter to continue...");
             Console.ReadLine();
             Console.WriteLine("Now ponder on each of the following question as they relate to this experience.");
             Console.Write("You may begin in: \n");
             ShowCountDown(5);
             Console.Clear();
-            // DisplayPrompt();
-
             DateTime startTime = DateTime.Now;
             DateTime futureTime = startTime.AddSeconds(_duration);
 
@@ -57,27 +60,38 @@ namespace Mindfulness
                 DisplayQuestions();
                 ShowSpinner(5);
             }
-
             DisplayEndingMessage();
+            _usedQuestions.Clear();
         }
         public string GetRandomPrompt()
         {
-            if (_prompts.Count == _usedPrompts.Count)
-            {
-                _usedPrompts.Clear();
-            }
-            List<string> availablePrompts = _prompts.Except(_usedPrompts).ToList();
-
-            return availablePrompts[_random.Next(availablePrompts.Count)];
+           if (_prompts.Count == _usedPrompts.Count) 
+           {
+            _usedPrompts.Clear();
+           }
+          
+           List<string> availablePrompts = _prompts.Except(_usedPrompts).ToList();
+          
+           return availablePrompts[_random.Next(availablePrompts.Count)]; 
         }
         public string GetRandomQuestion()
         {
-            return _questions[_random.Next(_questions.Count)];
+            if (_questions.Count == _usedQuestions.Count) 
+            {
+                _usedQuestions.Clear();
+            }
+            
+            List<string> availableQuestions = _questions.Except(_usedQuestions).ToList();
+
+            string question = availableQuestions[_random.Next(availableQuestions.Count)]; 
+
+            _usedQuestions.Add(question); 
+            return question;
         }
 
         public void DisplayQuestions()
         {
-            Console.Write(GetRandomQuestion());
+            Console.WriteLine(GetRandomQuestion());
         }
 
     }
