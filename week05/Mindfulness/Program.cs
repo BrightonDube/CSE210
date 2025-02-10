@@ -21,7 +21,7 @@ namespace Mindfulness
 
                 if (choice == "1")
                 {
-                    BreathingActivity breathingActivity = new BreathingActivity();
+                    BreathingActivity breathingActivity = new();
                     breathingActivity.Run();
                     break;
 
@@ -33,12 +33,19 @@ namespace Mindfulness
                 }
                 else if (choice == "3")
                 {
-                    activityName = "Listing";
-                    description = "reflect on the good things in your life by having you list as many things a you can  in a certain area";
+                    ListingActivity listingActivity = new();
+                    listingActivity.Run();
+                    break;
                 }
                 else if (choice == "4")
                 {
                     Console.WriteLine("Goodbye");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
                 }
 
                 Activity activity = new(activityName, description);
