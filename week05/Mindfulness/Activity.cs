@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace Mindfulness
 {
@@ -56,27 +57,48 @@ namespace Mindfulness
             DateTime startTime = DateTime.Now;
             DateTime futureTime = startTime.AddSeconds(seconds);
             int characterIndex = 0;
+            Console.CursorLeft = 0; // New
+
+            Console.Write("       ");
+            Thread.Sleep(500);
+
 
             while (DateTime.Now < futureTime)
             {
+                //   Console.Write("\b");
                 Console.CursorLeft = 0;
-
                 Console.Write($"{spinnerCharacters[characterIndex]}");
                 Thread.Sleep(250);
 
                 characterIndex = (characterIndex + 1) % spinnerCharacters.Count;
             }
-            Console.WriteLine();
+            Console.Write("        ");
+            Console.WriteLine(" ");
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+            ClearCurrentConsoleLine();
+        }
+        public static void ClearCurrentConsoleLine()
+        {
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
         }
         public void ShowCountDown(int seconds)
         {
             for (int i = seconds; i > 0; i--)
             {
                 Console.CursorLeft = 0;
+
                 Console.Write($"{i}");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
+
+                Console.Write("\b \b");
+
             }
-            Console.Write("\r");
+
+
+            Console.Write("\b \b");
             Console.WriteLine("\b \b");
         }
     }

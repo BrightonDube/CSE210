@@ -31,43 +31,39 @@ namespace Mindfulness
                 "What did you learn about yourself through this experience?",
                 "How can you keep this experience in mind in the future?"
             };
-            _usedPrompts = new List<string>();//initialize list of used prompts
-         }
+            _usedPrompts = new List<string>();
+        }
 
         private Random _random = new Random();
         public void Run()
         {
             DisplayStartingMessage();
             SetDuration();
-
             Console.WriteLine("Consider the following prompt:\n");
             string prompt = GetRandomPrompt();
-
             Console.WriteLine($"--- {prompt} ---\n");
             Console.WriteLine("When you have something in mind, press enter to continue...");
             Console.ReadLine();
             Console.WriteLine("Now ponder on each of the following question as they relate to this experience.");
             Console.Write("You may begin in: \n");
             ShowCountDown(5);
-            Console.Clear();
-
 
             DateTime startTime = DateTime.Now;
             DateTime futureTime = startTime.AddSeconds(_duration);
 
             List<string> usedQuestions = new List<string>();
+            Console.Clear();
 
             while (DateTime.Now < futureTime)
             {
                 string question = GetRandomQuestion(usedQuestions);
-                Console.CursorLeft = 0;
-                Console.Write($"{question}"); 
+                Console.WriteLine($"{question}");
                 ShowSpinner(5);
+
             }
 
             DisplayEndingMessage();
         }
-       
         private string GetRandomQuestion(List<string> usedQuestions)
         {
             if (_questions.Count == usedQuestions.Count)
@@ -78,8 +74,8 @@ namespace Mindfulness
             string question;
             do
             {
-                question = _questions[_random.Next(_questions.Count)]; 
-            } while (usedQuestions.Contains(question)); 
+                question = _questions[_random.Next(_questions.Count)];
+            } while (usedQuestions.Contains(question));
 
             usedQuestions.Add(question);
             return question;
@@ -94,5 +90,6 @@ namespace Mindfulness
 
             return availablePrompts[_random.Next(availablePrompts.Count)];
         }
+
     }
 }
