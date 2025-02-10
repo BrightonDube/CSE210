@@ -8,8 +8,6 @@ namespace Mindfulness
         {
             while (true)
             {
-                string activityName = "";
-                string description = "";
                 Console.WriteLine("Menu Options:");
                 Console.WriteLine("\t1. Start breathing activity");
                 Console.WriteLine("\t2. Start reflecting activity");
@@ -48,12 +46,8 @@ namespace Mindfulness
                     break;
                 }
 
-                Activity activity = new(activityName, description);
-                activity.DisplayStartingMessage();
-                activity.SetDuration();
-                activity.ShowSpinner(3);
-                activity.DisplayEndingMessage();
-                activity.ShowCountDown(5);
+                Console.WriteLine("Press any key to return to the menu.");
+                Console.ReadKey();
 
             }
         }
