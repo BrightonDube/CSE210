@@ -12,7 +12,7 @@ namespace Mindfulness
 
         }
        
-        public override void Run()
+        public void Run()
         {
             DisplayStartingMessage();
             SetDuration();

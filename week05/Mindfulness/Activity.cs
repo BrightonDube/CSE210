@@ -16,10 +16,7 @@ namespace Mindfulness
             _name = name;
             _description = description;
         }
-        public Activity()
-        {
-        
-        }
+       
         public void SetDuration()
         {
             Console.Write("How long, in seconds, would you like for your session? ");
@@ -39,6 +36,7 @@ namespace Mindfulness
             Console.Clear();
             Console.WriteLine($"Welcome to the {_name} activity.\n");
             Console.WriteLine($"This activity will help you {_description}\n");
+
         }
         //public void Run();
         public void DisplayEndingMessage()
@@ -69,7 +67,23 @@ namespace Mindfulness
                 Console.Write("|");
                 Thread.Sleep(250); 
 
+                Console.Write("\b \b");
+                Console.Write("/");
+                Thread.Sleep(250); 
+
                 Console.Write("\b \b"); 
+                Console.Write("-");
+                Thread.Sleep(250); 
+
+                Console.Write("\b \b"); 
+                Console.Write("\\");
+                Thread.Sleep(250); 
+
+                Console.Write("\b \b"); 
+                Console.Write("|");
+                Thread.Sleep(250); 
+
+                Console.Write("\b \b");  
             }
 
             Console.WriteLine(); 
