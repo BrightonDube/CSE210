@@ -7,6 +7,7 @@ namespace Mindfulness
     {
         private readonly List<string> _prompts;
         private readonly List<string> _questions;
+        private List<string> _usedPrompts;
 
         public ReflectingActivity() : base("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
         {
@@ -29,6 +30,7 @@ namespace Mindfulness
                 "What did you learn about yourself through this experience?",
                 "How can you keep this experience in mind in the future?"
             };
+            _usedPrompts = new();
         }
         private Random _random = new Random();
         public void Run()
@@ -36,7 +38,9 @@ namespace Mindfulness
             DisplayStartingMessage();
             SetDuration();
             Console.WriteLine("Consider the following prompt:\n");
-            Console.WriteLine($"--- {GetRandomPrompt()} ---\n");
+            string prompt = GetRandomPrompt();
+            Console.WriteLine($"--- {prompt} ---\n");
+            _usedPrompts.Add(prompt);
             Console.WriteLine("When you have something in mind, press enter to continue...");
             Console.ReadLine();
             Console.WriteLine("Now ponder on each of the following question as they relate to this experience.");
@@ -58,18 +62,19 @@ namespace Mindfulness
         }
         public string GetRandomPrompt()
         {
-            return _prompts[_random.Next(_prompts.Count)];
+            if (_prompts.Count == _usedPrompts.Count)
+            {
+                _usedPrompts.Clear();
+            }
+            List<string> availablePrompts = _prompts.Except(_usedPrompts).ToList();
+
+            return availablePrompts[_random.Next(availablePrompts.Count)];
         }
         public string GetRandomQuestion()
         {
             return _questions[_random.Next(_questions.Count)];
         }
-        // public void DisplayPrompt()
-        // {
-        //     Console.WriteLine(GetRandomPrompt());
-        //     Console.WriteLine("Take a moment to reflect on this...");
-        //     ShowSpinner(5);
-        //}
+
         public void DisplayQuestions()
         {
             Console.Write(GetRandomQuestion());
