@@ -22,12 +22,32 @@ namespace Mindfulness
             while (DateTime.Now < futureTime)
             {
                 Console.WriteLine("Breathe in...");
-                ShowCountDown(7);
+                ShowBreathingAnimation(4);
                 Console.WriteLine("Breathe out...");
-                ShowCountDown(5);
+                ShowBreathingAnimation(6);
             }
 
             DisplayEndingMessage();
+        }
+        private void ShowBreathingAnimation(int seconds)
+        {
+            string breatheIn = " . . . . . . . . . . . . . . ";
+            string breatheOut = " . . . . . . . . . ";
+
+            DateTime startTime = DateTime.Now;
+            DateTime futureTime = startTime.AddSeconds(seconds);
+
+            while (DateTime.Now < futureTime)
+            {
+                Console.CursorLeft = 0;
+
+                Console.Write(breatheIn);
+                Thread.Sleep(500);
+                Console.CursorLeft = 0;
+                Console.Write(breatheOut);
+                Thread.Sleep(500);
+                Console.WriteLine("\b \b \b");
+            }
         }
     }
 }

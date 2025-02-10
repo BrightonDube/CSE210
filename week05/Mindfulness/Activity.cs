@@ -72,7 +72,8 @@ namespace Mindfulness
         {
             for (int i = seconds; i > 0; i--)
             {
-                Console.Write($"\r{i}");
+                Console.CursorLeft = 0;
+                Console.Write($"{i}");
                 Thread.Sleep(1000);
             }
             Console.Write("\r");
