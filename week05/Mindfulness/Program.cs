@@ -21,7 +21,7 @@ namespace Mindfulness
                 {
                     BreathingActivity breathingActivity = new();
                     breathingActivity.Run();
-                    break;
+
 
                 }
                 else if (choice == "2")

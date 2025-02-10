@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Mindfulness
 {
@@ -26,10 +24,10 @@ namespace Mindfulness
         public void Run()
         {
             DisplayStartingMessage();
-            SetDuration();
-            Console.Clear();
+            SetDuration();                      
+            Console.WriteLine("List as many responses to the following prompt:");
 
-            GetRandomPrompt();
+            Console.WriteLine($"--- {GetRandomPrompt()} ---");
 
             Console.WriteLine("Get ready to begin listing in...");
             ShowCountDown(5); // Pause for 5 seconds
@@ -45,9 +43,9 @@ namespace Mindfulness
             DisplayEndingMessage();
 
         }
-        public void GetRandomPrompt()
+        public string GetRandomPrompt()
         {
-            Console.WriteLine(_prompts[_random.Next(_prompts.Count)]);
+            return (_prompts[_random.Next(_prompts.Count)]);
         }
         public List<string> GetListFromUser(DateTime futureTime)
         {

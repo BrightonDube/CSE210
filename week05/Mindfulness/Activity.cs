@@ -14,7 +14,7 @@ namespace Mindfulness
             _name = name;
             _description = description;
         }
-       
+
         public void SetDuration()
         {
             Console.Write("How long, in seconds, would you like for your session? ");
@@ -28,6 +28,9 @@ namespace Mindfulness
                 Console.WriteLine("Invalid input. Setting duration to 30 seconds.");
                 _duration = 30;
             }
+            Console.Clear();
+            Console.WriteLine("Get ready ...");
+            ShowSpinner(3);
         }
         public void DisplayStartingMessage()
         {
@@ -40,50 +43,38 @@ namespace Mindfulness
         //public void Run();
         public void DisplayEndingMessage()
         {
-            Console.WriteLine("Well done!");            
-            Console.WriteLine($"You have completed {_name} for {_duration} seconds.");            
+            Console.WriteLine("Well done!");
+            ShowSpinner(1);
+            Console.WriteLine($"You have completed {_name} for {_duration} seconds.");
+            ShowSpinner(2);
         }
-       public void ShowSpinner(int seconds)
-       {
-            Console.Write("Get Ready "); 
+        public void ShowSpinner(int seconds)
+        {
 
-            for (int i = 0; i < seconds * 2; i++) 
+            for (int i = 0; i < seconds; i++)
             {
-                Console.Write("/");
-                Thread.Sleep(250); 
-
-                Console.Write("\b \b"); 
-                Console.Write("-");
-                Thread.Sleep(250); 
-
-                Console.Write("\b \b"); 
-                Console.Write("\\");
-                Thread.Sleep(250); 
-
-                Console.Write("\b \b"); 
                 Console.Write("|");
-                Thread.Sleep(250); 
+                Thread.Sleep(250);
 
                 Console.Write("\b \b");
                 Console.Write("/");
-                Thread.Sleep(250); 
+                Thread.Sleep(250);
 
-                Console.Write("\b \b"); 
+                Console.Write("\b \b");
                 Console.Write("-");
-                Thread.Sleep(250); 
+                Thread.Sleep(250);
 
-                Console.Write("\b \b"); 
+                Console.Write("\b \b");
                 Console.Write("\\");
-                Thread.Sleep(250); 
+                Thread.Sleep(250);
 
-                Console.Write("\b \b"); 
+                Console.Write("\b \b");
                 Console.Write("|");
-                Thread.Sleep(250); 
-
-                Console.Write("\b \b");  
+                Thread.Sleep(250);
+                Console.Write("\b \b");
             }
 
-            Console.WriteLine(); 
+            Console.WriteLine();
         }
         public void ShowCountDown(int seconds)
         {
@@ -92,7 +83,7 @@ namespace Mindfulness
                 Console.Write($"\rPausing for {i} seconds...");
                 Thread.Sleep(1000);
             }
-             Console.WriteLine("\r");
+            Console.WriteLine("\r");
         }
     }
 }

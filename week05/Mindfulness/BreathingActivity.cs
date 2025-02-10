@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Mindfulness
@@ -11,7 +9,7 @@ namespace Mindfulness
         {
 
         }
-       
+
         public void Run()
         {
             DisplayStartingMessage();
@@ -24,12 +22,12 @@ namespace Mindfulness
             while (DateTime.Now < futureTime)
             {
                 Console.WriteLine("Breathe in...");
-                ShowCountDown(3);
+                ShowCountDown(7);
                 Console.WriteLine("Breathe out...");
-                ShowCountDown(3);
+                ShowCountDown(5);
             }
 
             DisplayEndingMessage();
         }
-}
     }
+}
