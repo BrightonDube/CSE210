@@ -40,10 +40,8 @@ namespace Mindfulness
         //public void Run();
         public void DisplayEndingMessage()
         {
-            Console.WriteLine("Well done!");
-            ShowSpinner(5);
-            Console.WriteLine($"You have completed {_name} for {_duration} seconds.");
-            ShowSpinner(3); 
+            Console.WriteLine("Well done!");            
+            Console.WriteLine($"You have completed {_name} for {_duration} seconds.");            
         }
        public void ShowSpinner(int seconds)
        {
