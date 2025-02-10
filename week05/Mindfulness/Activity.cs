@@ -80,7 +80,7 @@ namespace Mindfulness
         {
             for (int i = seconds; i > 0; i--)
             {
-                Console.Write($"\rPausing for {i} seconds...");
+                Console.Write($"\r{i}");
                 Thread.Sleep(1000);
             }
             Console.WriteLine("\r");

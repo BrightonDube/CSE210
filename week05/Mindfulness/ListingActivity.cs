@@ -26,11 +26,9 @@ namespace Mindfulness
             DisplayStartingMessage();
             SetDuration();                      
             Console.WriteLine("List as many responses to the following prompt:");
-
-            Console.WriteLine($"--- {GetRandomPrompt()} ---");
-
-            Console.WriteLine("Get ready to begin listing in...");
-            ShowCountDown(5); // Pause for 5 seconds
+            Console.WriteLine($"--- {GetRandomPrompt()} ---");      
+            Console.WriteLine("When you have something in ");
+            ShowCountDown(5);
 
             Console.WriteLine("Begin!");
             DateTime startTime = DateTime.Now;

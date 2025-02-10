@@ -35,9 +35,11 @@ namespace Mindfulness
         {
             DisplayStartingMessage();
             SetDuration();
-            Console.Clear();
-
-            DisplayPrompt();
+            Console.WriteLine("Consider the following prompt:");
+            Console.WriteLine($"--- {GetRandomPrompt()} ---");      
+            Console.WriteLine("When you have something in mind, press enter to continue...");
+            Console.ReadLine();
+           // DisplayPrompt();
 
             DateTime startTime = DateTime.Now;
             DateTime futureTime = startTime.AddSeconds(_duration);
