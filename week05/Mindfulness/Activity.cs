@@ -36,12 +36,17 @@ namespace Mindfulness
         }
         public void DisplayStartingMessage()
         {
+            Console.Clear();
             Console.WriteLine($"Welcome to the {_name} activity.\n");
             Console.WriteLine($"This activity will help you {_description}\n");
         }
+        //public void Run();
         public void DisplayEndingMessage()
         {
-            Console.WriteLine("Thank you for using the Mindfulness app");
+            Console.WriteLine("Well done!");
+        ShowSpinner(3);
+        Console.WriteLine($"You have completed {_name} for {_duration} seconds.");
+        ShowSpinner(3); 
         }
        public void ShowSpinner(int seconds)
        {
@@ -73,9 +78,10 @@ namespace Mindfulness
         {
             for (int i = seconds; i > 0; i--)
             {
-                Console.WriteLine("\rCountdown: {0} seconds", i);
-
+                Console.Write($"\rPausing for {i} seconds...");
+                Thread.Sleep(1000);
             }
+             Console.WriteLine("\r");
         }
 
 
