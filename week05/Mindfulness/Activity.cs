@@ -47,33 +47,24 @@ namespace Mindfulness
             ShowSpinner(1);
             Console.WriteLine($"You have completed {_name} for {_duration} seconds.");
             ShowSpinner(2);
+            Console.Clear();
         }
         public void ShowSpinner(int seconds)
         {
 
-            for (int i = 0; i < seconds; i++)
+            List<string> spinnerCharacters = new List<string> { "|", "/", "-", "\\" };
+            DateTime startTime = DateTime.Now;
+            DateTime futureTime = startTime.AddSeconds(seconds);
+            int characterIndex = 0;
+
+            while (DateTime.Now < futureTime)
             {
-                Console.Write("|");
+                Console.Write($"\r{spinnerCharacters[characterIndex]}");
                 Thread.Sleep(250);
 
-                Console.Write("\b \b");
-                Console.Write("/");
-                Thread.Sleep(250);
-
-                Console.Write("\b \b");
-                Console.Write("-");
-                Thread.Sleep(250);
-
-                Console.Write("\b \b");
-                Console.Write("\\");
-                Thread.Sleep(250);
-
-                Console.Write("\b \b");
-                Console.Write("|");
-                Thread.Sleep(250);
-                Console.Write("\b \b");
+                characterIndex = (characterIndex + 1) % spinnerCharacters.Count;
             }
-
+            Console.WriteLine("\b \b");
             Console.WriteLine();
         }
         public void ShowCountDown(int seconds)
@@ -83,7 +74,8 @@ namespace Mindfulness
                 Console.Write($"\r{i}");
                 Thread.Sleep(1000);
             }
-            Console.WriteLine("\r");
+            Console.Write("\r");
+            Console.WriteLine("\b \b");
         }
     }
 }

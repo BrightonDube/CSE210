@@ -24,10 +24,10 @@ namespace Mindfulness
         public void Run()
         {
             DisplayStartingMessage();
-            SetDuration();                      
+            SetDuration();
             Console.WriteLine("List as many responses to the following prompt:");
-            Console.WriteLine($"--- {GetRandomPrompt()} ---");      
-            Console.WriteLine("When you have something in ");
+            Console.WriteLine($"--- {GetRandomPrompt()} ---");
+            Console.Write("You may begin in: \n");
             ShowCountDown(5);
 
             Console.WriteLine("Begin!");
@@ -39,7 +39,6 @@ namespace Mindfulness
             _count = _items.Count;
             Console.WriteLine($"You listed {_count} items!");
             DisplayEndingMessage();
-
         }
         public string GetRandomPrompt()
         {

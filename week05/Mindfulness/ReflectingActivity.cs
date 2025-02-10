@@ -35,11 +35,15 @@ namespace Mindfulness
         {
             DisplayStartingMessage();
             SetDuration();
-            Console.WriteLine("Consider the following prompt:");
-            Console.WriteLine($"--- {GetRandomPrompt()} ---");      
+            Console.WriteLine("Consider the following prompt:\n");
+            Console.WriteLine($"--- {GetRandomPrompt()} ---\n");
             Console.WriteLine("When you have something in mind, press enter to continue...");
             Console.ReadLine();
-           // DisplayPrompt();
+            Console.WriteLine("Now ponder on each of the following question as they relate to this experience.");
+            Console.Write("You may begin in: \n");
+            ShowCountDown(5);
+            Console.Clear();
+            // DisplayPrompt();
 
             DateTime startTime = DateTime.Now;
             DateTime futureTime = startTime.AddSeconds(_duration);
@@ -60,15 +64,15 @@ namespace Mindfulness
         {
             return _questions[_random.Next(_questions.Count)];
         }
-        public void DisplayPrompt()
-        {
-            Console.WriteLine(GetRandomPrompt());
-            Console.WriteLine("Take a moment to reflect on this...");
-            ShowSpinner(5);
-        }
+        // public void DisplayPrompt()
+        // {
+        //     Console.WriteLine(GetRandomPrompt());
+        //     Console.WriteLine("Take a moment to reflect on this...");
+        //     ShowSpinner(5);
+        //}
         public void DisplayQuestions()
         {
-            Console.WriteLine(GetRandomQuestion());
+            Console.Write(GetRandomQuestion());
         }
 
     }

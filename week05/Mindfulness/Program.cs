@@ -6,6 +6,7 @@ namespace Mindfulness
     {
         static void Main(string[] args)
         {
+            // Creativity : the reflecting activity guarantees all prompts are used once
             while (true)
             {
                 Console.WriteLine("Menu Options:");
@@ -21,8 +22,6 @@ namespace Mindfulness
                 {
                     BreathingActivity breathingActivity = new();
                     breathingActivity.Run();
-
-
                 }
                 else if (choice == "2")
                 {
@@ -33,7 +32,6 @@ namespace Mindfulness
                 {
                     ListingActivity listingActivity = new();
                     listingActivity.Run();
-                    break;
                 }
                 else if (choice == "4")
                 {
@@ -43,12 +41,7 @@ namespace Mindfulness
                 else
                 {
                     Console.WriteLine("Invalid choice. Please try again.");
-                    break;
                 }
-
-                Console.WriteLine("Press any key to return to the menu.");
-                Console.ReadKey();
-
             }
         }
     }
