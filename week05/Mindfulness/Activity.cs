@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace Mindfulness
 {
@@ -38,13 +36,14 @@ namespace Mindfulness
             Console.WriteLine($"This activity will help you {_description}\n");
 
         }
+
         //public void Run();
         public void DisplayEndingMessage()
         {
             Console.WriteLine("Well done!");
-        ShowSpinner(5);
-        Console.WriteLine($"You have completed {_name} for {_duration} seconds.");
-        ShowSpinner(3); 
+            ShowSpinner(5);
+            Console.WriteLine($"You have completed {_name} for {_duration} seconds.");
+            ShowSpinner(3); 
         }
        public void ShowSpinner(int seconds)
        {
@@ -97,8 +96,5 @@ namespace Mindfulness
             }
              Console.WriteLine("\r");
         }
-
-
-
     }
 }
