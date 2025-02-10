@@ -66,6 +66,10 @@ namespace Mindfulness
             Console.WriteLine("Take a moment to reflect on this...");
             ShowSpinner(5);
         }
+        public void DisplayQuestions()
+        {
+            Console.WriteLine(GetRandomQuestion());
+        }
 
     }
 }
