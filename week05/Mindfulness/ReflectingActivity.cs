@@ -32,6 +32,7 @@ namespace Mindfulness
                 "How can you keep this experience in mind in the future?"
             };
         }
+        private Random _random = new Random();
         public void Run()
         {
             DisplayStartingMessage();
@@ -51,5 +52,20 @@ namespace Mindfulness
 
             DisplayEndingMessage();
         }
+        public string GetRandomPrompt()
+        {
+            return _prompts[_random.Next(_prompts.Count)];
+        }
+        public string GetRandomQuestion()
+        {
+            return _questions[_random.Next(_questions.Count)];
+        }
+        public void DisplayPrompt()
+        {
+            Console.WriteLine(GetRandomPrompt());
+            Console.WriteLine("Take a moment to reflect on this...");
+            ShowSpinner(5);
+        }
+
     }
 }
