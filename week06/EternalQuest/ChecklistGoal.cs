@@ -5,8 +5,12 @@ using System.Threading.Tasks;
 
 namespace EternalQuest
 {
-    public class Checklist
+    public class ChecklistGoal : Goal
     {
+        private int _amountCompleted;
+        private int _target;
+        private int _bonus;
+        
         
     }
 }
