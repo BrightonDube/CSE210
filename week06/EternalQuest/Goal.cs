@@ -17,5 +17,21 @@ namespace EternalQuest
             _description = description;
             _points = points;
         }
+        public static void RecordEvent()
+        {
+
+        }
+        public bool IsComplete()
+        {
+            return false;
+        }
+        public string GetDetailsString()
+        {
+            return $"Short Name: {_shortName}\nDescription: {_description}\nPoints: {_points} ";
+        }
+        public string GetStringRepresentation()
+        {
+            return $"Goal: {_shortName} - {_description} - {_points} points";
+        }
     }
 }
