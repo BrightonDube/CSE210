@@ -149,6 +149,72 @@ namespace EternalQuest
                     break;
             }
         }
+        public void RecordEvent()
+        {
+            if (_goals.Count == 0)
+            {
+                Console.WriteLine("No goals created yet.  Create a goal first.");
+                return;
+            }
+
+            Console.WriteLine("The goals are:");
+            for (int i = 0; i < _goals.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {_goals[i].GetShortName()}");
+            }
+
+            Console.Write("Which goal did you accomplish? ");
+            if (!int.TryParse(Console.ReadLine(), out int goalIndex) || goalIndex < 1 || goalIndex > _goals.Count)
+            {
+                Console.WriteLine("Invalid goal number.");
+                return;
+            }
+
+            Goal goal = _goals[goalIndex - 1];
+
+            if (goal.IsComplete())
+            {
+                Console.WriteLine("You have already completed this goal.");
+                return;
+            }
+
+            goal.RecordEvent();
+            _score += goal.GetPoints();
+            if (goal is ChecklistGoal checklistGoal && checklistGoal.IsComplete())
+            {
+                _score += checklistGoal.GetBonus();
+            }
+            Console.WriteLine($"Congratulations! You earned {goal.GetPoints()} points.");
+            DisplayPlayerInfo();
+        }
+
+        public void SaveGoals()
+        {
+            Console.Write("What is the name of the file to save the goals in: ");
+            string filename = Console.ReadLine();
+
+            try
+            {
+                using (StreamWriter outputFile = new StreamWriter(filename))
+                {
+                    outputFile.WriteLine(_score);
+
+                    foreach (Goal goal in _goals)
+                    {
+                        outputFile.WriteLine(goal.GetStringRepresentation());
+                    }
+
+                }
+                Console.WriteLine("Goals saved successfully.");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to save goals: {ex.Message}");
+            }
+        }
+        
+
 
 
 
