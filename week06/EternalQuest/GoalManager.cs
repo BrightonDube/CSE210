@@ -61,6 +61,21 @@ namespace EternalQuest
             Console.WriteLine($"Player Score: {_score}");
         }
 
+         public void ListGoalNames()
+        {
+            if (_goals.Count == 0)
+            {
+                Console.WriteLine("No goals created yet.");
+                return;
+            }
+
+            Console.WriteLine("Goals:");
+            for (int i = 0; i < _goals.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {_goals[i].GetShortName()}");
+            }
+        }
+
 
 
     }
