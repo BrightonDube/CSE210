@@ -75,6 +75,27 @@ namespace EternalQuest
                 Console.WriteLine($"{i + 1}. {_goals[i].GetShortName()}");
             }
         }
+         public void ListGoalDetails()
+        {
+            if (_goals.Count == 0)
+            {
+                Console.WriteLine("No goals created yet.");
+                return;
+            }
+
+            Console.WriteLine("Goals:");
+            for (int i = 0; i < _goals.Count; i++)
+            {
+                string completionStatus = _goals[i].IsComplete() ? "[X]" : "[ ]";
+                string details = $"{i + 1}. {completionStatus} {_goals[i].GetShortName()} ({_goals[i].GetDetailsString()})";
+                if (_goals[i] is ChecklistGoal checklistGoal)
+                {
+                    details = $"{i + 1}. {completionStatus} {_goals[i].GetShortName()} ({checklistGoal.GetAmountCompleted()}/{checklistGoal.GetTarget()})";
+                }
+                Console.WriteLine(details);
+            }
+        }
+
 
 
 
