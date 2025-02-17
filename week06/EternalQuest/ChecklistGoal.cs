@@ -35,6 +35,26 @@ namespace EternalQuest
         {
             return base.GetDetailsString() + $", Completed: {_amountCompleted}/{_target}, Bonus: {_bonus}";
         }
+        public override string GetStringRepresentation()
+        {
+            return $"ChecklistGoal:{GetShortName()},{GetDescription()},{GetPoints()},{_target},{_bonus},{_amountCompleted}";
+        }
+        public int GetAmountCompleted()
+        {
+            return _amountCompleted;
+        }
+        public int GetTarget()
+        {
+            return _target;
+        }
+        public int GetBonus()
+        {
+            return _bonus;
+        }
+        public void SetAmountCompleted(int amountCompleted)
+        {
+            _amountCompleted = amountCompleted;
+        }
 
 
     }
