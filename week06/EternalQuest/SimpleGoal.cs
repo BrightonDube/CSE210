@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EternalQuest
 {
@@ -9,15 +6,16 @@ namespace EternalQuest
     {
         private bool _isComplete;
 
-        public SimpleGoal(string name, string description, string points) : base(name, description, points)
+        public SimpleGoal(string name, string description, int points) : base(name, description, points)
         {
             _isComplete = false;
 
         }
 
-        public void RecordEvent()
+        public override void RecordEvent()
         {
             _isComplete = true;
+            Console.WriteLine($" Congratulations! You have completed the goal: {GetShortName()}");
         }
         public bool IsComplete()
         {
