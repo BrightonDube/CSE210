@@ -24,6 +24,16 @@ namespace EternalQuest
                 Console.WriteLine($"Congratulations! You have completed the checklist goal: {GetShortName()} and earned a bonus of {_bonus} points!");
             }
 
+
+        }
+        public override bool IsComplete()
+        {
+            return _amountCompleted >= _target;
+        }
+
+        public override string GetDetailsString()
+        {
+            return base.GetDetailsString() + $", Completed: {_amountCompleted}/{_target}, Bonus: {_bonus}";
         }
 
 
