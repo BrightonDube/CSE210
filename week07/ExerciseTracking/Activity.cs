@@ -11,5 +11,6 @@ namespace ExerciseTracking
             _time = time;
         }
         public abstract int CalculateSpeed();
+        public abstract string GetSummary();
     }
 }
