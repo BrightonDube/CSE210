@@ -9,6 +9,11 @@ namespace ExerciseTracking
     {
         public RunningActivity()
         {
+            private double _distanceKilometers;
+            public Running(DateTime date, int durationMinutes, double _distanceKilometers) : base(date, durationMinutes)
+            {
+                _distanceKilometers = _distanceKilometers
+            }
 
         }
 
