@@ -213,11 +213,78 @@ namespace EternalQuest
                 Console.WriteLine($"Failed to save goals: {ex.Message}");
             }
         }
-        
 
+         public void LoadGoals()
+        {
+            Console.Write("What is the name of the file to load the goals from: ");
+            string filename = Console.ReadLine();
 
+            try
+            {
+                string[] lines = File.ReadAllLines(filename);
+                if (lines.Length > 0)
+                {
+                    _score = int.Parse(lines[0]); // Load the score from the first line
+                    _goals.Clear(); // Clear existing goals
 
+                    for (int i = 1; i < lines.Length; i++)
+                    {
+                        string[] parts = lines[i].Split(":");
+                        string goalType = parts[0];
+                        string[] goalData = parts[1].Split(",");
 
-
+                        switch (goalType)
+                        {
+                            case "SimpleGoal":
+                                string name = goalData[0];
+                                string description = goalData[1];
+                                int points = int.Parse(goalData[2]);
+                                bool isComplete = bool.Parse(goalData[3]);
+                                SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
+                                if (isComplete)
+                                {
+                                    simpleGoal.RecordEvent();
+                                }
+                                _goals.Add(simpleGoal);
+                                break;
+                            case "EternalGoal":
+                                string eternalName = goalData[0];
+                                string eternalDescription = goalData[1];
+                                int eternalPoints = int.Parse(goalData[2]);
+                                _goals.Add(new EternalGoal(eternalName, eternalDescription, eternalPoints));
+                                break;
+                            case "ChecklistGoal":
+                                string checklistName = goalData[0];
+                                string checklistDescription = goalData[1];
+                                int checklistPoints = int.Parse(goalData[2]);
+                                int target = int.Parse(goalData[3]);
+                                int bonus = int.Parse(goalData[4]);
+                                int amountCompleted = int.Parse(goalData[5]);
+                                ChecklistGoal checklistGoal = new ChecklistGoal(checklistName, checklistDescription, checklistPoints, target, bonus);
+                                checklistGoal.SetAmountCompleted(amountCompleted);
+                                _goals.Add(checklistGoal);
+                                break;
+                            default:
+                                Console.WriteLine($"Unknown goal type: {goalType}");
+                                break;
+                        }
+                    }
+                    Console.WriteLine("Goals loaded successfully.");
+                    DisplayPlayerInfo();
+                }
+                else
+                {
+                    Console.WriteLine("File is empty.");
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File not found.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading goals: {ex.Message}");
+            }
+        }
     }
 }
