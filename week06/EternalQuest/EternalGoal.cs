@@ -12,5 +12,13 @@ namespace EternalQuest
         {
             Console.WriteLine($"You have recorded progress on the eternal goal: {GetShortName()}");
         }
+        public override bool IsComplete()
+        {
+            return false;
+        }
+        public override string GetStringRepresentation()
+        {
+            return $"EternalGoal: {GetShortName()}, {GetDescription()}, {GetPoints()}";
+        }
     }
 }
