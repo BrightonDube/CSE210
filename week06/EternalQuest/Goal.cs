@@ -16,13 +16,23 @@ namespace EternalQuest
         }
         public abstract void RecordEvent();
         public abstract bool IsComplete();
-        public string GetDetailsString()
+        public virtual string GetDetailsString()
         {
-            return $"Short Name: {_shortName}\nDescription: {_description}\nPoints: {_points} ";
+            return $"Description: {_description}";
         }
-        public string GetStringRepresentation()
+        public abstract string GetStringRepresentation();
+
+        public string GetShortName()
         {
-            return $"Goal: {_shortName} - {_description} - {_points} points";
+            return _shortName;
+        }
+        public int GetPoints()
+        {
+            return _points;
+        }
+        public string GetDescription()
+        {
+            return _description;
         }
     }
 }
