@@ -96,6 +96,60 @@ namespace EternalQuest
             }
         }
 
+         public void CreateGoal()
+        {
+            Console.WriteLine("The types of Goals are:");
+            Console.WriteLine("  1. Simple Goal");
+            Console.WriteLine("  2. Eternal Goal");
+            Console.WriteLine("  3. Checklist Goal");
+            Console.Write("Which type of goal would you like to create? ");
+            string goalType = Console.ReadLine();
+
+            Console.Write("What is the name of your goal? ");
+            string name = Console.ReadLine();
+
+            Console.Write("What is a short description of it? ");
+            string description = Console.ReadLine();
+
+            Console.Write("What is the amount of points associated with this goal? ");
+            if (!int.TryParse(Console.ReadLine(), out int points))
+            {
+                Console.WriteLine("Invalid input for points. Goal creation cancelled.");
+                return;
+            }
+
+            switch (goalType)
+            {
+                case "1":
+                    _goals.Add(new SimpleGoal(name, description, points));
+                    Console.WriteLine("Simple Goal Created");
+                    break;
+                case "2":
+                    _goals.Add(new EternalGoal(name, description, points));
+                    Console.WriteLine("Eternal Goal Created");
+                    break;
+                case "3":
+                    Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+                    if (!int.TryParse(Console.ReadLine(), out int target))
+                    {
+                        Console.WriteLine("Invalid input for target. Goal creation cancelled.");
+                        return;
+                    }
+                    Console.Write("What is the bonus for accomplishing it that many times? ");
+                    if (!int.TryParse(Console.ReadLine(), out int bonus))
+                    {
+                        Console.WriteLine("Invalid input for bonus. Goal creation cancelled.");
+                        return;
+                    }
+                    _goals.Add(new ChecklistGoal(name, description, points, target, bonus));
+                    Console.WriteLine("Checklist Goal Created");
+                    break;
+                default:
+                    Console.WriteLine("Invalid goal type. Goal creation cancelled.");
+                    break;
+            }
+        }
+
 
 
 
