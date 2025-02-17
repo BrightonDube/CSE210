@@ -17,13 +17,13 @@ namespace EternalQuest
             _isComplete = true;
             Console.WriteLine($" Congratulations! You have completed the goal: {GetShortName()}");
         }
-        public bool IsComplete()
+        public override bool IsComplete()
         {
             return _isComplete;
         }
-        public string GetStringRepresentation()
+        public override string GetStringRepresentation()
         {
-            return $"{name} - {Description} - {Points} - {IsComplete()}";
+            return $"SimpleGoal:{GetShortName()},{GetDescription()},{GetPoints()},{_isComplete}";
         }
     }
 }
