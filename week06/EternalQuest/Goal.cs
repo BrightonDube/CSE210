@@ -1,30 +1,21 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EternalQuest
 {
-    public class Goal
+    public abstract class Goal
     {
         private string _shortName;
         private string _description;
-        private string _points;
+        private int _points;
 
-        public Goal(string name, string description, string points)
+        public Goal(string name, string description, int points)
         {
             _shortName = name;
             _description = description;
             _points = points;
         }
-        public static void RecordEvent()
-        {
-
-        }
-        public bool IsComplete()
-        {
-            return false;
-        }
+        public abstract void RecordEvent();
+        public abstract bool IsComplete();
         public string GetDetailsString()
         {
             return $"Short Name: {_shortName}\nDescription: {_description}\nPoints: {_points} ";
