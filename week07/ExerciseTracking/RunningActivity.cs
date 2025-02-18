@@ -4,9 +4,7 @@ namespace ExerciseTracking
 {
     public class RunningActivity : Activity
     {
-        public RunningActivity()
-        {
-            private double _distanceKilometers;
+        private double _distanceKilometers;
         public RunningActivity(DateTime date, int durationMinutes, double _distanceKilometers) : base(date, durationMinutes)
         {
             _distanceKilometers = _distanceKilometers;
@@ -40,6 +38,7 @@ namespace ExerciseTracking
 
     }
 
+}
 
-}
-}
+
+
