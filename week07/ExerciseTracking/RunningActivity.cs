@@ -5,9 +5,9 @@ namespace ExerciseTracking
     public class RunningActivity : Activity
     {
         private double _distanceKilometers;
-        public RunningActivity(DateTime date, int durationMinutes, double _distanceKilometers) : base(date, durationMinutes)
+        public RunningActivity(DateTime date, int durationMinutes, double distanceKilometers) : base(date, durationMinutes)
         {
-            _distanceKilometers = _distanceKilometers;
+            _distanceKilometers = distanceKilometers;
         }
 
         public double GetDistanceKilometers()
@@ -21,24 +21,26 @@ namespace ExerciseTracking
 
         public override double GetDistance()
         {
-            return _distanceKilometers;
+            return GetDistanceKilometers();
         }
         public override double GetSpeed()
         {
-            return (GetDistanceKilometers() / GetDurationMinutes()) * 60;
+            return (GetDistance() / GetDurationMinutes()) * 60;
         }
         public override double GetPace()
         {
-            return GetDurationMinutes() / GetDistanceKilometers();
+            double distance = GetDistance();
+            if (distance == 0)
+            {
+                return 0;
+            }
+            return GetDurationMinutes() / distance;
         }
         public override string GetSummary()
         {
-            return $"{GetDate(): dd MMM yyyy} Running ({GetDurationMinutes()} min): Distance {GetDistance(): F2} km, Speed {GetSpeed(): F2} km/h), Pace: {GetPace(): F2} min per km";
+            return $"{GetDate():dd MMM yyyy} Running ({GetDurationMinutes()} min): Distance {GetDistance():F2} km, Speed {GetSpeed():F2} km/h, Pace: {GetPace():F2} min per km";
         }
 
     }
 
 }
-
-
-
