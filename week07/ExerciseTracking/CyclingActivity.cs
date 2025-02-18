@@ -32,7 +32,7 @@ namespace ExerciseTracking
         }
         public override string GetSummary()
         {
-            return $"{GetDate(): dd MMM yyyy} Cycling ({GetDurationMinutes()} min): Distance {GetDistance():F2} km, Speed: {GetSpeedKph():F2} kph, Pace: {GetPace():F2} min per km";
+            return $"{GetDate():dd MMM yyyy} Cycling ({GetDurationMinutes()} min): Distance {GetDistance():F2} km, Speed: {GetSpeed():F2} kph, Pace: {GetPace():F2} min per km";
         }
 
     }

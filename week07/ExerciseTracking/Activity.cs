@@ -28,19 +28,13 @@ namespace ExerciseTracking
         {
             _durationMinutes = durationMinutes;
         }
-        public virtual double GetDistance()
-        {
-            return 0;
-        }
+        public abstract double GetDistance();
 
-        public virtual double GetSpeed()
-        {
-            return 0;
-        }
-        public virtual double GetPace() { return 0; }
+        public abstract double GetSpeed();
+        public abstract double GetPace();
         public virtual string GetSummary()
         {
-            return $"{_date:dd MMM yyyy} Activity ({_durationMinutes}) min";
+            return $"{GetDate():dd MMM yyyy} Activity ({GetDurationMinutes()}) min";
         }
     }
 }
