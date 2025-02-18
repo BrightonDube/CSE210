@@ -26,5 +26,14 @@ namespace ExerciseTracking
         {
             return (GetDistance() / GetDurationMinutes()) * 60;
         }
+
+        public override double GetPace()
+        {
+            return GetDurationMinutes() / GetDistance();
+        }
+        public override string GetSummary()
+        {
+            return $"{GetDate(): dd MMM yyy} Swimming ({GetDurationMinutes()} min) Distance {GetDistance(): F2} km, Speed: {GetSpeed(): F2} kph, Pace: {GetPace(): F2} min per km";
+        }
     }
 }
