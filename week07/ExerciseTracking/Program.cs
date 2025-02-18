@@ -1,26 +1,29 @@
 using System;
 
-class Program
+namespace ExerciseTracking
 {
-    static void Main(string[] args)
+    class Program
     {
-
-        List<Activity> activities = new List<Activity>();
-
-
-        Running running = new Running(DateTime.Now.AddDays(-1), 30, 4.8);
-        Cycling cycling = new Cycling(DateTime.Now.AddDays(-2), 45, 25.0);
-        Swimming swimming = new Swimming(DateTime.Now.AddDays(-3), 60, 50);
-
-
-        activities.Add(running);
-        activities.Add(cycling);
-        activities.Add(swimming);
-
-
-        foreach (Activity activity in activities)
+        static void Main(string[] args)
         {
-            Console.WriteLine(activity.GetSummary());
+
+            List<Activity> activities = new List<Activity>();
+
+
+            RunningActivity running = new RunningActivity(DateTime.Now.AddDays(-1), 30, 4.8);
+            CyclingActivity cycling = new CyclingActivity(DateTime.Now.AddDays(-2), 45, 25.0);
+            SwimmingActivity swimming = new SwimmingActivity(DateTime.Now.AddDays(-3), 60, 50);
+
+
+            activities.Add(running);
+            activities.Add(cycling);
+            activities.Add(swimming);
+
+
+            foreach (Activity activity in activities)
+            {
+                Console.WriteLine(activity.GetSummary());
+            }
         }
     }
 }
