@@ -18,5 +18,13 @@ namespace ExerciseTracking
         {
             _laps = laps;
         }
-     }
+        public override double GetDistance()
+        {
+            return GetLaps() * 50.0 / 1000.0;
+        }
+        public override double GetSpeed()
+        {
+            return (GetDistance() / GetDurationMinutes()) * 60;
+        }
+    }
 }
