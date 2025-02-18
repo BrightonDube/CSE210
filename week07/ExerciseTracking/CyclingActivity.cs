@@ -2,7 +2,7 @@ using System;
 
 namespace ExerciseTracking
 {
-    public class CyclingSpeed : Activity
+    public class CyclingActivity : Activity
     {
         private double _speedKph;
         public CyclingActivity(DateTime date, int durationMinutes, double speedKph) : base(date, durationMinutes)
@@ -20,7 +20,7 @@ namespace ExerciseTracking
 
         public override double GetDistance()
         {
-            return (GetSpeedKph()/60) * GetDurationMinutes();
+            return (GetSpeedKph() / 60) * GetDurationMinutes();
         }
         public override double GetSpeed()
         {
