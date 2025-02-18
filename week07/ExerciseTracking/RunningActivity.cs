@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ExerciseTracking
 {
@@ -10,12 +7,35 @@ namespace ExerciseTracking
         public RunningActivity()
         {
             private double _distanceKilometers;
-            public Running(DateTime date, int durationMinutes, double _distanceKilometers) : base(date, durationMinutes)
+            public RunningActivity(DateTime date, int durationMinutes, double _distanceKilometers) : base(date, durationMinutes)
             {
-                _distanceKilometers = _distanceKilometers
+                _distanceKilometers = _distanceKilometers;
+            }
+
+            public double GetDistanceKilometers()
+             {
+                return _distanceKilometers;
+             }
+            public void SetDistanceKilometers(double distanceKilometers)
+            {
+                _distanceKilometers = distanceKilometers;
+            }
+
+            public override double GetDistance()
+            {
+                return _distanceKilometers;
+            }
+            public override double GetSpeed()
+            {
+                return (GetDistanceKilometers() / GetDurationMinutes()) * 60;
+            }
+            public override double GetPace() 
+            {
+                return GetDurationMinutes() / GetDistanceKilometers();
             }
 
         }
+
 
     }
 }
