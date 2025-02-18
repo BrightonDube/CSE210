@@ -18,5 +18,19 @@ namespace ExerciseTracking
             _speedKph = speedKph;
         }
 
+        public override double GetDistance()
+        {
+            return (GetSpeedKph()/60) * GetDurationMinutes();
+        }
+        public override double GetSpeed()
+        {
+            return GetSpeedKph();
+        }
+        public override double GetPace()
+        {
+            return 60 / GetSpeedKph();
+        }
+        
+
     }
 }
